@@ -48,7 +48,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <footer id="contact" className="pt-24 pb-12 relative overflow-hidden bg-[#080D1A] border-t border-[#3987FF]/20">
+    <footer id="contact" className="pt-24 pb-12 relative overflow-hidden bg-[#080D1A]/80 backdrop-blur-sm border-t border-[#3987FF]/20">
       {/* Background glow */}
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-t from-[#3987FF]/10 to-transparent blur-[120px] pointer-events-none"

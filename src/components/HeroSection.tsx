@@ -6,7 +6,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-[#080D1A] via-[#0B1325] to-[#080D1A]"
+      className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden"
     >
       {/* Background ambient radial gradients - subtle and refined */}
       <div

@@ -23,15 +23,6 @@ export const NeuralBackground: React.FC = () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-      initNodes();
-    };
-
-    window.addEventListener('resize', handleResize);
-
     // Particle nodes definition
     interface Node {
       x: number;
@@ -47,13 +38,22 @@ export const NeuralBackground: React.FC = () => {
 
     const colors = [
       '#3987FF', // Electric blue
-      '#18C995', // Emerald green
-      '#35D9E8', // Cyan
       '#8957FF', // Vibrant violet
+      '#35D9E8', // Cyan
+      '#18C995', // Emerald green
     ];
 
     let nodes: Node[] = [];
     const mouse = { x: -1000, y: -1000, active: false };
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initNodes();
+    };
+
+    window.addEventListener('resize', handleResize);
 
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
@@ -72,18 +72,18 @@ export const NeuralBackground: React.FC = () => {
 
     const initNodes = () => {
       nodes = [];
-      // Node count scaled by screen area
-      const nodeCount = Math.floor(Math.min(Math.max((width * height) / 16000, 45), 90));
+      // Density calculated for smooth high-end visual presence
+      const nodeCount = Math.floor(Math.min(Math.max((width * height) / 14000, 50), 95));
       for (let i = 0; i < nodeCount; i++) {
         nodes.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.45,
-          vy: (Math.random() - 0.5) * 0.45,
-          radius: Math.random() * 1.8 + 1,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          radius: Math.random() * 2 + 1.2,
           color: colors[Math.floor(Math.random() * colors.length)],
-          baseAlpha: Math.random() * 0.4 + 0.25,
-          pulseSpeed: Math.random() * 0.02 + 0.01,
+          baseAlpha: Math.random() * 0.35 + 0.35,
+          pulseSpeed: Math.random() * 0.025 + 0.015,
           pulseOffset: Math.random() * Math.PI * 2,
         });
       }
@@ -97,10 +97,10 @@ export const NeuralBackground: React.FC = () => {
       time += 0.02;
       ctx.clearRect(0, 0, width, height);
 
-      // Draw faint background tech grid lines
+      // 1. Subtle moving technical grid lines
       const gridSize = 120;
       ctx.lineWidth = 0.5;
-      ctx.strokeStyle = 'rgba(57, 135, 255, 0.025)';
+      ctx.strokeStyle = 'rgba(57, 135, 255, 0.035)';
       for (let x = 0; x < width; x += gridSize) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
@@ -114,9 +114,9 @@ export const NeuralBackground: React.FC = () => {
         ctx.stroke();
       }
 
-      // Update and draw nodes
-      const maxDistance = 140;
-      const mouseInteractionRadius = 180;
+      // 2. Update and draw nodes & neural connections
+      const maxDistance = 150;
+      const mouseInteractionRadius = 190;
 
       for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i];
@@ -131,28 +131,28 @@ export const NeuralBackground: React.FC = () => {
           if (node.y < -20) node.y = height + 20;
           if (node.y > height + 20) node.y = -20;
 
-          // Subtle mouse attraction/repulsion
+          // Gentle mouse attraction
           if (mouse.active) {
             const dx = mouse.x - node.x;
             const dy = mouse.y - node.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < mouseInteractionRadius && dist > 1) {
-              const force = (1 - dist / mouseInteractionRadius) * 0.02;
+              const force = (1 - dist / mouseInteractionRadius) * 0.03;
               node.x += dx * force;
               node.y += dy * force;
             }
           }
         }
 
-        // Draw node
-        const currentAlpha = node.baseAlpha + Math.sin(time * node.pulseSpeed * 20 + node.pulseOffset) * 0.15;
+        // Draw node with pulsing luminescence
+        const currentAlpha = node.baseAlpha + Math.sin(time * node.pulseSpeed * 20 + node.pulseOffset) * 0.2;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fillStyle = node.color;
-        ctx.globalAlpha = Math.max(0.1, Math.min(0.8, currentAlpha));
+        ctx.globalAlpha = Math.max(0.15, Math.min(0.9, currentAlpha));
         ctx.fill();
 
-        // Connect with nearby nodes
+        // Connect with neighboring nodes (synaptic lines)
         for (let j = i + 1; j < nodes.length; j++) {
           const other = nodes[j];
           const dx = node.x - other.x;
@@ -160,33 +160,32 @@ export const NeuralBackground: React.FC = () => {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDistance) {
-            const alpha = (1 - dist / maxDistance) * 0.22;
+            const alpha = (1 - dist / maxDistance) * 0.28;
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
-            // Gradient connection line
             const grad = ctx.createLinearGradient(node.x, node.y, other.x, other.y);
             grad.addColorStop(0, node.color);
             grad.addColorStop(1, other.color);
             ctx.strokeStyle = grad;
             ctx.globalAlpha = alpha;
-            ctx.lineWidth = 0.8;
+            ctx.lineWidth = 0.9;
             ctx.stroke();
           }
         }
 
-        // Connect to mouse if nearby
+        // Connect to mouse cursor if nearby
         if (mouse.active) {
           const dx = mouse.x - node.x;
           const dy = mouse.y - node.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 130) {
+          if (dist < 140) {
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = 'rgba(53, 217, 232, 0.4)';
-            ctx.globalAlpha = (1 - dist / 130) * 0.35;
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#35D9E8';
+            ctx.globalAlpha = (1 - dist / 140) * 0.45;
+            ctx.lineWidth = 1.2;
             ctx.stroke();
           }
         }
@@ -210,7 +209,7 @@ export const NeuralBackground: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-80"
+      className="fixed inset-0 pointer-events-none z-0 w-full h-full"
       aria-hidden="true"
     />
   );

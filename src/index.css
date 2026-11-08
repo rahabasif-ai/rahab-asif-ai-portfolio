@@ -12,7 +12,6 @@
     --accent-highlight: #35D9E8;
     --text-main: #F4F7FF;
     --text-muted: #A6B2C8;
-    --bg-ice: #EAF2FF;
     --burgundy-deep: #762D43;
     --burgundy-rose: #B85A70;
     --burgundy-blush: #D98B9A;
@@ -73,20 +72,6 @@
 .glass-panel-hover:hover {
   border-color: rgba(24, 201, 149, 0.45);
   box-shadow: 0 10px 30px -6px rgba(24, 201, 149, 0.2);
-}
-
-/* Surfaces for Light / Ice-Blue Sections */
-.light-panel {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(57, 135, 255, 0.15);
-  box-shadow: 0 4px 20px -6px rgba(15, 23, 42, 0.08);
-}
-
-.light-panel-hover:hover {
-  border-color: rgba(24, 201, 149, 0.45);
-  box-shadow: 0 10px 28px -6px rgba(24, 201, 149, 0.18);
 }
 
 /* Selective Neon Glow Effects */

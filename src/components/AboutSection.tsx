@@ -15,14 +15,14 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-gradient-to-b from-[#EAF2FF] via-[#F4F7FF] to-[#EAF2FF] text-[#0F172A] border-y border-[#3987FF]/15">
-      {/* Subtle light background ambient glow */}
+    <section id="about" className="py-24 relative overflow-hidden">
+      {/* Subtle background ambient glow */}
       <div
-        className="absolute top-1/2 left-10 w-96 h-96 bg-[#18C995]/10 rounded-full blur-[100px] pointer-events-none"
+        className="absolute top-1/2 left-10 w-96 h-96 bg-[#18C995]/8 rounded-full blur-[100px] pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-10 right-10 w-96 h-96 bg-[#3987FF]/10 rounded-full blur-[100px] pointer-events-none"
+        className="absolute bottom-10 right-10 w-96 h-96 bg-[#3987FF]/8 rounded-full blur-[100px] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -32,10 +32,10 @@ export const AboutSection: React.FC = () => {
           <div className="text-xs font-mono uppercase tracking-widest text-[#18C995] font-semibold">
             Professional Identity
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#0F172A] font-['Outfit']">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F4F7FF] font-['Outfit']">
             Transforming Ideas into Intelligent Solutions Through Technology.
           </h2>
-          <p className="text-base sm:text-lg text-[#475569]">
+          <p className="text-base sm:text-lg text-[#A6B2C8]">
             Merging computer science rigor with practical machine learning to deliver tangible software solutions.
           </p>
         </div>
@@ -43,30 +43,30 @@ export const AboutSection: React.FC = () => {
         {/* Core Narrative Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
           <div className="lg:col-span-7 space-y-6">
-            <div className="light-panel p-8 rounded-2xl border border-[#3987FF]/20 space-y-5 shadow-sm">
-              <p className="text-xl sm:text-2xl font-bold text-[#0F172A] leading-relaxed">
+            <div className="glass-panel p-8 rounded-2xl border border-[#3987FF]/20 space-y-5 shadow-sm">
+              <p className="text-xl sm:text-2xl font-bold text-[#F4F7FF] leading-relaxed">
                 {PERSONAL_INFO.bioLead}
               </p>
-              <p className="text-[#334155] leading-relaxed text-base">
+              <p className="text-[#A6B2C8] leading-relaxed text-base">
                 {PERSONAL_INFO.bioExtended}
               </p>
-              <p className="text-[#334155] leading-relaxed text-base">
+              <p className="text-[#A6B2C8] leading-relaxed text-base">
                 My software engineering principles center on reliability, readability, and mathematical rigor. Whether formulating specialized prompt pipelines with Gemini models, structuring data schemas in Python, or training neural architectures, I value transparent systems designed for maintainability and direct user impact.
               </p>
 
               {/* Education Anchor Card */}
               <div className="pt-4 border-t border-[#3987FF]/15 flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-gradient-to-br from-[#3987FF]/15 to-[#18C995]/20 border border-[#18C995]/30 text-[#18C995] shrink-0">
+                <div className="p-3 rounded-xl bg-[#101A30] border border-[#18C995]/30 text-[#18C995] shrink-0">
                   <GraduationCap className="w-6 h-6 text-[#18C995]" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#0F172A]">
+                  <div className="text-sm font-bold text-[#F4F7FF]">
                     Bachelor of Science in Artificial Intelligence
                   </div>
                   <div className="text-xs text-[#18C995] font-mono font-semibold mt-0.5">
                     Academic Degree Program · Active (2025 – Present)
                   </div>
-                  <p className="text-xs text-[#475569] mt-1.5 leading-relaxed">
+                  <p className="text-xs text-[#A6B2C8] mt-1.5 leading-relaxed">
                     Developing core technical depth in mathematical foundations, discrete algorithm design, probability and statistics, neural computation, and software engineering.
                   </p>
                 </div>
@@ -76,7 +76,7 @@ export const AboutSection: React.FC = () => {
 
           {/* Right Column: Engineering Principles & Focus Points */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="text-xs font-mono uppercase tracking-wider text-[#475569] font-semibold mb-2 px-1">
+            <div className="text-xs font-mono uppercase tracking-wider text-[#A6B2C8] font-semibold mb-2 px-1">
               Core Technical Focus Areas
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -85,15 +85,15 @@ export const AboutSection: React.FC = () => {
                 return (
                   <div
                     key={idx}
-                    className="light-panel p-4 rounded-xl border border-[#3987FF]/15 hover:border-[#18C995] transition-all duration-200 group hover:-translate-y-0.5 shadow-sm"
+                    className="glass-panel p-4 rounded-xl border border-[#3987FF]/15 hover:border-[#18C995] transition-all duration-200 group hover:-translate-y-0.5 shadow-sm"
                   >
                     <div className="flex items-center gap-2.5 mb-1.5">
                       <Icon className="w-4 h-4 text-[#3987FF] group-hover:text-[#18C995] transition-colors" />
-                      <h3 className="text-sm font-bold text-[#0F172A]">
+                      <h3 className="text-sm font-bold text-[#F4F7FF]">
                         {interest.title}
                       </h3>
                     </div>
-                    <p className="text-xs text-[#475569] leading-snug">
+                    <p className="text-xs text-[#A6B2C8] leading-snug">
                       {interest.desc}
                     </p>
                   </div>

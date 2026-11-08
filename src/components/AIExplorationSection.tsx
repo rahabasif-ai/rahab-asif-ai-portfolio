@@ -43,7 +43,7 @@ export const AIExplorationSection: React.FC = () => {
   };
 
   return (
-    <section id="ai-exploration" className="py-24 relative overflow-hidden bg-[#080D1A]">
+    <section id="ai-exploration" className="py-24 relative overflow-hidden bg-[#101A30]/30">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="space-y-3 mb-16 text-center max-w-3xl mx-auto">
