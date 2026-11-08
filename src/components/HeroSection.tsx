@@ -115,7 +115,7 @@ export const HeroSection: React.FC = () => {
                   {/* Photo container - clean vertical portrait, clearly visible */}
                   <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#080D1A]">
                     <img
-                      src="/assets/rahab_portrait.jpg"
+                      src={PERSONAL_INFO.portraitImage}
                       alt="Rahab Asif – AI Engineer and Python Developer"
                       className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       loading="eager"

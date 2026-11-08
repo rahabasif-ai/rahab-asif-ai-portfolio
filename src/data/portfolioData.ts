@@ -1,5 +1,13 @@
 import { Project, AIExplorationItem, Skill, RoadmapItem, JourneyMilestone, TechTool } from '../types/portfolio';
 
+// Vite-compatible direct image imports for production builds
+import prepwiseImg from '../assets/images/prepwise_ai_study_1793984810402.jpg';
+import uniassistImg from '../assets/images/uniassist_nlp_vectors_1793984810328.jpg';
+import buildtrackImg from '../assets/images/buildtrack_ai_structure_1793984811278.jpg';
+import agroflowImg from '../assets/images/agroflow_ai_biosystem_1793984811053.jpg';
+import heroNeuralCoreImg from '../assets/images/hero_neural_core_1793984808273.jpg';
+import rahabPortraitImg from '../assets/images/rahab_portrait.jpg';
+
 export const PERSONAL_INFO = {
   name: 'RAHAB ASIF',
   role: 'AI ENGINEER | PYTHON DEVELOPER',
@@ -14,8 +22,8 @@ export const PERSONAL_INFO = {
     github: 'https://github.com/rahabasif-ai',
     email: 'rahabasif789@gmail.com',
   },
-  heroImage: '/src/assets/images/hero_neural_core_1793984808273.jpg',
-  portraitImage: '/assets/rahab_portrait.jpg',
+  heroImage: heroNeuralCoreImg,
+  portraitImage: rahabPortraitImg,
 };
 
 export const AI_EXPLORATION_AREAS: AIExplorationItem[] = [
@@ -288,7 +296,7 @@ export const FEATURED_PROJECTS: Project[] = [
     techStack: ['Python', 'FastAPI', 'Google AI Studio / Gemini API', 'NLP Pipelines', 'Tailwind CSS', 'React'],
     status: 'In Progress',
     statusColor: 'text-[#35D9E8] border-[#35D9E8]/30 bg-[#35D9E8]/10',
-    image: '/src/assets/images/prepwise_ai_study_1793984810402.jpg',
+    image: prepwiseImg,
     githubUrl: 'https://github.com/rahabasif-ai/prepwise-ai',
     liveDemoUrl: '#demo-prepwise',
     architectureDetails: {
@@ -328,7 +336,7 @@ export const FEATURED_PROJECTS: Project[] = [
     techStack: ['Python', 'Chatbot Architectures', 'Dialog Management', 'NLP', 'JavaScript', 'Tailwind CSS'],
     status: 'Completed',
     statusColor: 'text-[#3987FF] border-[#3987FF]/30 bg-[#3987FF]/10',
-    image: '/src/assets/images/uniassist_nlp_vectors_1793984810328.jpg',
+    image: uniassistImg,
     githubUrl: 'https://github.com/rahabasif-ai/uniassist-chatbot',
     liveDemoUrl: '#demo-uniassist',
     architectureDetails: {
@@ -368,7 +376,7 @@ export const FEATURED_PROJECTS: Project[] = [
     techStack: ['Python', 'Data Analytics', 'Predictive Modeling', 'Responsive UI', 'REST APIs'],
     status: 'In Progress',
     statusColor: 'text-[#35D9E8] border-[#35D9E8]/30 bg-[#35D9E8]/10',
-    image: '/src/assets/images/buildtrack_ai_structure_1793984811278.jpg',
+    image: buildtrackImg,
     githubUrl: 'https://github.com/rahabasif-ai/buildtrack-ai',
     liveDemoUrl: '#demo-buildtrack',
     architectureDetails: {
@@ -408,7 +416,7 @@ export const FEATURED_PROJECTS: Project[] = [
     techStack: ['Python', 'Environmental Telemetry Modeling', 'Predictive Heuristics', 'HTML/CSS/JS'],
     status: 'Planned Exploration',
     statusColor: 'text-[#8957FF] border-[#8957FF]/30 bg-[#8957FF]/10',
-    image: '/src/assets/images/agroflow_ai_biosystem_1793984811053.jpg',
+    image: agroflowImg,
     githubUrl: 'https://github.com/rahabasif-ai/agroflow-ai',
     liveDemoUrl: '#demo-agroflow',
     architectureDetails: {
