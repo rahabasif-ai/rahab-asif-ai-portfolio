@@ -58,7 +58,7 @@ export const ContactSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         {/* Section Header */}
         <div className="space-y-3 mb-16 text-center max-w-3xl mx-auto">
-          <div className="text-xs font-mono uppercase tracking-widest text-[#35D9E8]">
+          <div className="text-xs font-mono uppercase tracking-widest text-[#18C995] font-semibold">
             Get In Touch
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-['Outfit']">
@@ -84,9 +84,9 @@ export const ContactSection: React.FC = () => {
               {/* Direct Links */}
               <div className="space-y-4 pt-2">
                 {/* Email Item */}
-                <div className="p-4 rounded-xl bg-[#101A30]/80 border border-[#3987FF]/25 flex items-center justify-between gap-3 group">
+                <div className="p-4 rounded-xl bg-[#101A30]/80 border border-[#3987FF]/25 flex items-center justify-between gap-3 group hover:border-[#18C995]/60 transition-colors">
                   <div className="flex items-center gap-3 overflow-hidden">
-                    <div className="p-2.5 rounded-lg bg-[#080D1A] text-[#35D9E8] border border-[#3987FF]/20 shrink-0">
+                    <div className="p-2.5 rounded-lg bg-[#080D1A] text-[#18C995] border border-[#18C995]/30 shrink-0">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div className="overflow-hidden">
@@ -243,7 +243,7 @@ export const ContactSection: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 px-6 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#3987FF] via-[#35D9E8] to-[#8957FF] hover:opacity-95 transition-opacity flex items-center justify-center gap-2 shadow-lg shadow-[#3987FF]/25 disabled:opacity-50"
+                    className="w-full py-3.5 px-6 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#3987FF] via-[#18C995] to-[#3987FF] hover:bg-[length:200%_auto] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#18C995]/25 hover:shadow-[#18C995]/45 hover:-translate-y-0.5 disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <span>Sending Message...</span>

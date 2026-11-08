@@ -43,11 +43,11 @@ export const AIExplorationSection: React.FC = () => {
   };
 
   return (
-    <section id="ai-exploration" className="py-24 relative overflow-hidden bg-[#101A30]/30">
+    <section id="ai-exploration" className="py-24 relative overflow-hidden bg-[#080D1A]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="space-y-3 mb-16 text-center max-w-3xl mx-auto">
-          <div className="text-xs font-mono uppercase tracking-widest text-[#35D9E8]">
+          <div className="text-xs font-mono uppercase tracking-widest text-[#18C995] font-semibold">
             Domains of Competency
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-['Outfit']">
@@ -66,7 +66,7 @@ export const AIExplorationSection: React.FC = () => {
               <div
                 key={item.id}
                 onClick={() => setSelectedArea(item)}
-                className="group relative glass-panel p-6 rounded-2xl border border-[#3987FF]/20 hover:border-[#35D9E8]/45 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#3987FF]/15 cursor-pointer flex flex-col justify-between"
+                className="group relative glass-panel p-6 rounded-2xl border border-[#3987FF]/20 hover:border-[#18C995]/80 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#18C995]/20 cursor-pointer flex flex-col justify-between"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
@@ -79,14 +79,14 @@ export const AIExplorationSection: React.FC = () => {
               >
                 {/* Glow accent in top corner */}
                 <div
-                  className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#3987FF]/15 via-transparent to-transparent rounded-tr-2xl pointer-events-none"
+                  className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#18C995]/15 via-transparent to-transparent rounded-tr-2xl pointer-events-none"
                   aria-hidden="true"
                 />
 
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-[#101A30] border border-[#3987FF]/30 flex items-center justify-center text-[#35D9E8] group-hover:scale-110 transition-transform duration-300 shadow-md shadow-black/40">
-                      <IconComponent className="w-6 h-6 text-[#35D9E8]" />
+                    <div className="w-12 h-12 rounded-xl bg-[#101A30] border border-[#3987FF]/30 group-hover:border-[#18C995]/50 flex items-center justify-center text-[#18C995] group-hover:scale-110 transition-transform duration-300 shadow-md shadow-black/40">
+                      <IconComponent className="w-6 h-6 text-[#18C995]" />
                     </div>
                     <span className="text-xs font-mono text-[#A6B2C8]/50">
                       0{index + 1}
@@ -94,7 +94,7 @@ export const AIExplorationSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-bold text-white group-hover:text-[#35D9E8] transition-colors">
+                    <h3 className="text-lg font-bold text-white group-hover:text-[#18C995] transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-xs font-medium text-[#3987FF] mt-1 font-mono">
@@ -107,7 +107,7 @@ export const AIExplorationSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-5 mt-4 border-t border-[#3987FF]/15 flex items-center justify-between text-xs text-[#35D9E8] font-medium group-hover:text-white transition-colors">
+                <div className="pt-5 mt-4 border-t border-[#3987FF]/15 flex items-center justify-between text-xs text-[#18C995] font-semibold group-hover:text-white transition-colors">
                   <span>Explore Architecture</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>

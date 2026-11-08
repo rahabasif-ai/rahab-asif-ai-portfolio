@@ -72,12 +72,12 @@ export const JourneySection: React.FC = () => {
   };
 
   return (
-    <section id="journey" className="py-24 relative overflow-hidden bg-[#101A30]/30">
+    <section id="journey" className="py-24 relative overflow-hidden bg-[#080D1A]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="space-y-3">
-            <div className="text-xs font-mono uppercase tracking-widest text-[#35D9E8]">
+            <div className="text-xs font-mono uppercase tracking-widest text-[#18C995] font-semibold">
               Academic &amp; Engineering Path
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-['Outfit']">
@@ -102,7 +102,7 @@ export const JourneySection: React.FC = () => {
         </div>
 
         {/* Timeline Stream */}
-        <div className="relative border-l-2 border-[#3987FF]/25 ml-4 sm:ml-8 md:ml-32 space-y-12">
+        <div className="relative border-l-2 border-[#18C995]/30 ml-4 sm:ml-8 md:ml-32 space-y-12">
           {journey.map((item, idx) => {
             const Icon = getMilestoneIcon(idx);
 
@@ -112,23 +112,23 @@ export const JourneySection: React.FC = () => {
                 <div
                   className={`absolute -left-[17px] top-1.5 w-8 h-8 rounded-xl flex items-center justify-center border transition-all duration-300 ${
                     item.active
-                      ? 'bg-[#35D9E8] text-[#080D1A] border-white shadow-lg shadow-[#35D9E8]/30 scale-110'
-                      : 'bg-[#101A30] text-[#3987FF] border-[#3987FF]/40 group-hover:border-[#35D9E8]'
+                      ? 'bg-[#18C995] text-[#080D1A] border-white shadow-lg shadow-[#18C995]/30 scale-110'
+                      : 'bg-[#101A30] text-[#3987FF] border-[#3987FF]/40 group-hover:border-[#18C995]'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
                 </div>
 
                 {/* Date display (Desktop left-offset or inside card) */}
-                <div className="md:absolute md:-left-36 md:top-2 text-xs sm:text-sm font-mono font-semibold text-[#35D9E8] mb-1.5 md:mb-0">
+                <div className="md:absolute md:-left-36 md:top-2 text-xs sm:text-sm font-mono font-semibold text-[#18C995] mb-1.5 md:mb-0">
                   {item.period}
                 </div>
 
                 {/* Milestone Content Card */}
-                <div className="glass-panel p-6 rounded-2xl border border-[#3987FF]/20 group-hover:border-[#35D9E8]/40 transition-all duration-300 space-y-3">
+                <div className="glass-panel p-6 rounded-2xl border border-[#3987FF]/20 group-hover:border-[#18C995]/70 transition-all duration-300 space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-[#35D9E8] transition-colors">
+                      <h3 className="text-xl font-bold text-white group-hover:text-[#18C995] transition-colors">
                         {item.title}
                       </h3>
                       <div className="text-xs text-[#3987FF] font-mono mt-0.5">

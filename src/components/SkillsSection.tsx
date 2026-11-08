@@ -64,18 +64,28 @@ export const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+    <section id="skills" className="py-24 relative overflow-hidden bg-gradient-to-b from-[#F4F7FF] via-[#EAF2FF] to-[#F4F7FF] text-[#0F172A] border-y border-[#3987FF]/15">
+      {/* Subtle light background ambient glow */}
+      <div
+        className="absolute top-1/3 right-10 w-80 h-80 bg-[#18C995]/10 rounded-full blur-[90px] pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-10 left-10 w-80 h-80 bg-[#3987FF]/10 rounded-full blur-[90px] pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3">
-            <div className="text-xs font-mono uppercase tracking-widest text-[#35D9E8]">
+            <div className="text-xs font-mono uppercase tracking-widest text-[#18C995] font-semibold">
               Technical Competencies
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-['Outfit']">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#0F172A] font-['Outfit']">
               Technical Skills &amp; Abilities
             </h2>
-            <p className="text-base text-[#A6B2C8] max-w-xl">
+            <p className="text-base text-[#475569] max-w-xl">
               An organized inventory of programming languages, machine learning frameworks, web technologies, and developer tooling.
             </p>
           </div>
@@ -87,11 +97,11 @@ export const SkillsSection: React.FC = () => {
               onClick={() => setIsEditing(!isEditing)}
               className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 border ${
                 isEditing
-                  ? 'bg-[#35D9E8]/20 border-[#35D9E8] text-[#35D9E8] shadow-lg shadow-[#35D9E8]/20'
-                  : 'bg-[#101A30] border-[#3987FF]/30 text-[#F4F7FF] hover:border-[#3987FF]'
+                  ? 'bg-[#18C995]/20 border-[#18C995] text-[#0F172A] shadow-md shadow-[#18C995]/20'
+                  : 'bg-white border-[#3987FF]/30 text-[#0F172A] hover:border-[#18C995] shadow-sm'
               }`}
             >
-              <Sliders className="w-3.5 h-3.5" />
+              <Sliders className="w-3.5 h-3.5 text-[#18C995]" />
               <span>{isEditing ? 'Done Customizing' : 'Customize Skill Levels'}</span>
             </button>
 
@@ -99,7 +109,7 @@ export const SkillsSection: React.FC = () => {
               <button
                 type="button"
                 onClick={handleResetSkills}
-                className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-medium bg-[#101A30] border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-medium bg-white border border-red-500/30 text-red-500 hover:bg-red-50 transition-colors shadow-sm"
                 title="Reset to default levels"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
@@ -108,7 +118,7 @@ export const SkillsSection: React.FC = () => {
             )}
 
             {saveSuccess && (
-              <span className="text-xs text-emerald-400 flex items-center gap-1">
+              <span className="text-xs text-[#18C995] font-semibold flex items-center gap-1">
                 <Check className="w-3.5 h-3.5" /> Reset
               </span>
             )}
@@ -116,7 +126,7 @@ export const SkillsSection: React.FC = () => {
         </div>
 
         {/* Category Filter Tabs (Segmented Control) */}
-        <div className="flex items-center gap-2 p-1.5 bg-[#101A30]/80 border border-[#3987FF]/20 rounded-xl overflow-x-auto mb-10 max-w-full">
+        <div className="flex items-center gap-2 p-1.5 bg-white/90 border border-[#3987FF]/20 rounded-xl overflow-x-auto mb-10 max-w-full shadow-sm">
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isSelected = activeCategory === cat.value;
@@ -127,8 +137,8 @@ export const SkillsSection: React.FC = () => {
                 onClick={() => setActiveCategory(cat.value)}
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all duration-200 ${
                   isSelected
-                    ? 'bg-gradient-to-r from-[#3987FF] to-[#8957FF] text-white shadow-md'
-                    : 'text-[#A6B2C8] hover:text-white hover:bg-[#1b2848]'
+                    ? 'bg-gradient-to-r from-[#3987FF] to-[#18C995] text-white shadow-md'
+                    : 'text-[#475569] hover:text-[#0F172A] hover:bg-[#EAF2FF]'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -143,15 +153,15 @@ export const SkillsSection: React.FC = () => {
           {filteredSkills.map((skill) => (
             <div
               key={skill.name}
-              className={`glass-panel p-5 rounded-xl border transition-all duration-200 group ${
+              className={`light-panel p-5 rounded-xl border transition-all duration-200 group ${
                 isEditing
-                  ? 'border-[#35D9E8]/40 hover:border-[#35D9E8]'
-                  : 'border-[#3987FF]/20 hover:border-[#3987FF]/50'
+                  ? 'border-[#18C995]/70 hover:border-[#18C995]'
+                  : 'border-[#3987FF]/15 hover:border-[#18C995] hover:shadow-lg hover:shadow-[#18C995]/10'
               }`}
             >
               <div className="flex items-start justify-between gap-3 mb-2">
                 <div>
-                  <h3 className="text-base font-bold text-white group-hover:text-[#35D9E8] transition-colors">
+                  <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#3987FF] transition-colors">
                     {skill.name}
                   </h3>
                   <div className="text-xs text-[#3987FF] font-mono mt-0.5">
@@ -160,24 +170,24 @@ export const SkillsSection: React.FC = () => {
                 </div>
 
                 <div className="text-right">
-                  <span className="text-lg font-bold font-mono text-white tabular-nums">
+                  <span className="text-lg font-bold font-mono text-[#0F172A] tabular-nums">
                     {skill.level}%
                   </span>
-                  <div className="text-[10px] uppercase font-mono text-[#A6B2C8]/70">
+                  <div className="text-[10px] uppercase font-mono text-[#64748B]">
                     {skill.familiarity}
                   </div>
                 </div>
               </div>
 
-              <p className="text-xs text-[#A6B2C8] mb-4 leading-relaxed line-clamp-2">
+              <p className="text-xs text-[#475569] mb-4 leading-relaxed line-clamp-2">
                 {skill.description}
               </p>
 
               {/* Progress-style visual indicator */}
               <div className="space-y-1.5">
-                <div className="h-2 w-full bg-[#080D1A] rounded-full overflow-hidden p-0.5 border border-[#3987FF]/20">
+                <div className="h-2 w-full bg-[#E2E8F0] rounded-full overflow-hidden p-0.5 border border-[#CBD5E1]">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-[#3987FF] via-[#35D9E8] to-[#8957FF] transition-all duration-500 ease-out"
+                    className="h-full rounded-full bg-gradient-to-r from-[#3987FF] via-[#18C995] to-[#35D9E8] transition-all duration-500 ease-out"
                     style={{ width: `${skill.level}%` }}
                   />
                 </div>
@@ -185,16 +195,16 @@ export const SkillsSection: React.FC = () => {
                 {/* Inline Slider when in editing mode */}
                 {isEditing && (
                   <div className="pt-2 flex items-center gap-3">
-                    <span className="text-[10px] font-mono text-[#A6B2C8]">Adjust:</span>
+                    <span className="text-[10px] font-mono text-[#475569]">Adjust:</span>
                     <input
                       type="range"
                       min="10"
                       max="100"
                       value={skill.level}
                       onChange={(e) => handleUpdateLevel(skill.name, parseInt(e.target.value, 10))}
-                      className="w-full h-1.5 bg-[#080D1A] rounded-lg appearance-none cursor-pointer accent-[#35D9E8]"
+                      className="w-full h-1.5 bg-[#CBD5E1] rounded-lg appearance-none cursor-pointer accent-[#18C995]"
                     />
-                    <span className="text-xs font-mono text-[#35D9E8] w-8 text-right">
+                    <span className="text-xs font-mono text-[#18C995] font-bold w-8 text-right">
                       {skill.level}%
                     </span>
                   </div>
@@ -205,7 +215,7 @@ export const SkillsSection: React.FC = () => {
         </div>
 
         {/* Note on Authenticity */}
-        <div className="mt-8 text-center text-xs text-[#A6B2C8]/60 font-mono">
+        <div className="mt-8 text-center text-xs text-[#64748B] font-mono">
           Skill levels represent calibrated self-assessments across academic coursework and practical project builds.
         </div>
       </div>

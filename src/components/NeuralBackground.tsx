@@ -47,8 +47,9 @@ export const NeuralBackground: React.FC = () => {
 
     const colors = [
       '#3987FF', // Electric blue
-      '#8957FF', // Vibrant violet
+      '#18C995', // Emerald green
       '#35D9E8', // Cyan
+      '#8957FF', // Vibrant violet
     ];
 
     let nodes: Node[] = [];

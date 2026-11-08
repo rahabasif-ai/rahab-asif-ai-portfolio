@@ -8,9 +8,11 @@
     --bg-secondary: #101A30;
     --accent-primary: #3987FF;
     --accent-secondary: #8957FF;
+    --accent-emerald: #18C995;
     --accent-highlight: #35D9E8;
     --text-main: #F4F7FF;
     --text-muted: #A6B2C8;
+    --bg-ice: #EAF2FF;
     --burgundy-deep: #762D43;
     --burgundy-rose: #B85A70;
     --burgundy-blush: #D98B9A;
@@ -45,35 +47,62 @@
 ::-webkit-scrollbar-thumb {
   background: #101A30;
   border-radius: 4px;
-  border: 1px solid rgba(244, 247, 255, 0.12);
+  border: 1px solid rgba(24, 201, 149, 0.25);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #1b2848;
 }
 
-/* Glassmorphism surfaces - refined for crisp contrast and elegant light borders */
+/* Glassmorphism surfaces for Dark Sections */
 .glass-panel {
-  background: rgba(16, 26, 48, 0.72);
+  background: rgba(16, 26, 48, 0.75);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(244, 247, 255, 0.08);
+  border: 1px solid rgba(244, 247, 255, 0.1);
 }
 
 .glass-panel-glow {
-  background: rgba(16, 26, 48, 0.8);
+  background: rgba(16, 26, 48, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(57, 135, 255, 0.2);
+  border: 1px solid rgba(57, 135, 255, 0.25);
   box-shadow: 0 4px 20px -5px rgba(8, 13, 26, 0.6);
 }
 
 .glass-panel-hover:hover {
-  border-color: rgba(53, 217, 232, 0.3);
-  box-shadow: 0 8px 24px -6px rgba(8, 13, 26, 0.7);
+  border-color: rgba(24, 201, 149, 0.45);
+  box-shadow: 0 10px 30px -6px rgba(24, 201, 149, 0.2);
 }
 
-/* Keyframe animations for unique hero sequence */
+/* Surfaces for Light / Ice-Blue Sections */
+.light-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(57, 135, 255, 0.15);
+  box-shadow: 0 4px 20px -6px rgba(15, 23, 42, 0.08);
+}
+
+.light-panel-hover:hover {
+  border-color: rgba(24, 201, 149, 0.45);
+  box-shadow: 0 10px 28px -6px rgba(24, 201, 149, 0.18);
+}
+
+/* Selective Neon Glow Effects */
+.neon-blue-glow {
+  box-shadow: 0 0 24px -2px rgba(57, 135, 255, 0.35);
+}
+
+.neon-emerald-glow {
+  box-shadow: 0 0 24px -2px rgba(24, 201, 149, 0.38);
+}
+
+.neon-dual-border {
+  border-image: linear-gradient(135deg, #3987FF 0%, #18C995 100%) 1;
+}
+
+/* Keyframe animations for hero entrance sequence */
 @keyframes hero-fade-up {
   0% {
     opacity: 0;
@@ -88,11 +117,30 @@
 @keyframes hero-slide-left {
   0% {
     opacity: 0;
-    transform: translateX(36px);
+    transform: translateX(40px);
   }
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+/* Floating suspended pendulum motion for portrait card */
+@keyframes floating-pendulum {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(6px, -5px, 0) rotate(1.2deg);
+  }
+  50% {
+    transform: translate3d(0, -9px, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate3d(-6px, -5px, 0) rotate(-1.2deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
   }
 }
 
@@ -115,19 +163,21 @@
   opacity: 0;
 }
 
-.animate-hero-portrait {
+.animate-hero-portrait-entry {
   animation: hero-slide-left 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
   opacity: 0;
 }
 
-/* Subtle glow animations - restrained */
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.03); }
+.animate-floating-portrait {
+  animation: floating-pendulum 7s ease-in-out infinite;
+  transform-origin: top center;
 }
 
-.animate-pulse-subtle {
-  animation: pulse-subtle 8s infinite ease-in-out;
+@media (prefers-reduced-motion: reduce) {
+  .animate-floating-portrait {
+    animation: none !important;
+  }
 }
+
 
 
